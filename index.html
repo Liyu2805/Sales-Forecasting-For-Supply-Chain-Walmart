@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sales Forecaster Hub</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <h1>Sales Forecasting ML</h1>
+    <input type="text" placeholder="Search...">
+  </header>
+
+  <!-- INPUT PANEL -->
+  <section class="inputs-panel">
+    <h2>Prediction Inputs</h2>
+    <form id="predict-form">
+
+      <label>Store:
+        <select name="Store" required>
+          <option value="1">Store 1</option>
+          <option value="2">Store 2</option>
+          <option value="3">Store 3</option>
+          <option value="4">Store 4</option>
+          <option value="5">Store 5</option>
+          <!-- add more stores as needed -->
+        </select>
+      </label>
+
+      <label>Temperature:
+        <input type="number" name="Temperature" step="0.1" required>
+      </label>
+
+      <label>Fuel Price:
+        <input type="number" name="Fuel_Price" step="0.01" required>
+      </label>
+
+      <label>CPI:
+        <input type="number" name="CPI" step="0.1" required>
+      </label>
+
+      <label>Unemployment:
+        <input type="number" name="Unemployment" step="0.1" required>
+      </label>
+
+      <label>Date:
+        <input type="date" name="Date" required>
+      </label>
+
+      <label>
+        Holiday:
+        <input type="checkbox" name="Holiday_Flag" value="1">
+      </label>
+
+      <button type="submit">Predict</button>
+    </form>
+  </section>
+
+  <!-- CARDS -->
+  <div class="cards" id="cards-container">
+    <div class="card">
+      <h3>Predicted Revenue</h3>
+      <p id="predicted-revenue"></p>
+    </div>
+
+    <div class="card">
+      <h3>Forecasted Units</h3>
+      <p id="forecasted-units"></p>
+    </div>
+
+    <div class="card">
+      <h3>Model Accuracy</h3>
+      <p id="model-accuracy">94.3%</p>
+    </div>
+
+    <div class="card">
+      <h3>Stock Out Risk</h3>
+      <p id="stock-risk"></p>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
