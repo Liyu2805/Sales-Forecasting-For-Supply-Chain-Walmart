@@ -4,13 +4,13 @@ import pandas as pd
 from datetime import datetime
 import os
 
-app = Flask(__name__)
+app = Flask(__name__, static_folder='.')
 
 model = joblib.load("random_forest_model.pkl") 
 
 @app.route('/')
 def home():
-    return send_from_directory('.', 'index.html') 
+    return app.send_static_file('index.html') 
 
 @app.route('/predict', methods=['POST'])
 def predict():
@@ -47,5 +47,5 @@ def predict():
 
 # Run the app
 if __name__ == "__main__":
-    port = int(os.environ.get("PORT", 5000))
+    port = int(os.environ.get("PORT", 5002))
     app.run(debug=True, host='0.0.0.0', port=port)
