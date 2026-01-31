@@ -1,10 +1,10 @@
-from flask import Flask, request, jsonify, send_from_directory, render_template
+from flask import Flask, request, jsonify, render_template
 import joblib
 import pandas as pd
 from datetime import datetime
 import os
 
-app = Flask(__name__, static_folder='.')
+app = Flask(__name__)
 
 model = joblib.load("random_forest_model.pkl") 
 
@@ -47,5 +47,5 @@ def predict():
 
 # Run the app
 if __name__ == "__main__":
-    port = int(os.environ.get("PORT", 5002))
+    port = int(os.environ.get("PORT", 5000))
     app.run(debug=True, host='0.0.0.0', port=port)
