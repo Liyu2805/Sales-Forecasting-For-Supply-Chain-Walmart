@@ -1,0 +1,105 @@
+:root {
+  --bg-primary: #2F3136;
+  --bg-secondary: #36393F;
+  --bg-tertiary: #202225;
+  --text-normal: #DCDDDE;
+  --text-muted: #B9BBBE;
+  --accent: #5865F2;
+  --accent-hover: #4752C4;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter', sans-serif;
+  background-color: var(--bg-primary);
+  color: var(--text-normal);
+}
+
+/* HEADER */
+header {
+  padding: 20px;
+  background-color: var(--bg-secondary);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 1.8rem;
+}
+
+header input {
+  padding: 6px 12px;
+  border-radius: 4px;
+  border: 1px solid var(--accent);
+  background-color: var(--bg-tertiary);
+  color: var(--text-normal);
+}
+
+/* INPUT PANEL */
+.inputs-panel {
+  padding: 20px;
+  margin: 20px;
+  border-radius: 8px;
+  background-color: var(--bg-secondary);
+}
+
+.inputs-panel h2 {
+  margin-top: 0;
+}
+
+.inputs-panel label {
+  display: block;
+  margin: 10px 0;
+}
+
+select, input[type="number"], input[type="date"], input[type="text"] {
+  width: 100%;
+  padding: 8px;
+  border-radius: 4px;
+  border: 1px solid var(--accent);
+  background-color: var(--bg-tertiary);
+  color: var(--text-normal);
+}
+
+button {
+  background-color: var(--accent);
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: 0.2s;
+}
+
+button:hover {
+  background-color: var(--accent-hover);
+}
+
+/* CARDS */
+.cards {
+  display: none;
+  margin: 20px;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.cards.show {
+  display: flex;
+}
+
+.card {
+  background-color: var(--bg-secondary);
+  padding: 20px;
+  border-radius: 8px;
+  min-width: 200px;
+  flex: 1;
+  border-left: 4px solid var(--accent);
+}
+
+.card h3 {
+  margin-top: 0;
+}
