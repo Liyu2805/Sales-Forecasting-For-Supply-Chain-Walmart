@@ -6,7 +6,7 @@ import os
 
 app = Flask(__name__)
 
-model = joblib.load("random_forest_model.pkl") 
+model = joblib.load("sales_model.joblib") 
 
 @app.route('/')
 def home():
@@ -28,9 +28,7 @@ def predict():
             'Unemployment': float(data['Unemployment']),
             'Week': date.isocalendar().week,
             'Month': date.month,
-            'Year': date.year, 
-            'Lag_1': 0,
-            'Rolling_Mean_4': 0 
+            'Year': date.year
         }
 
         # Convert to DataFrame
