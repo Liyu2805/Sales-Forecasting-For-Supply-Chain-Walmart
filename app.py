@@ -28,7 +28,7 @@ def predict():
             'Unemployment': float(data['Unemployment']),
             'Week': date.isocalendar().week,
             'Month': date.month,
-            'Year': date.year
+            'Year': date.year, 
             'Lag_1': 0,
             'Rolling_Mean_4': 0 
         }
