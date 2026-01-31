@@ -1,4 +1,4 @@
-document.getElementById("predictBtn").addEventListener("click", async () => {
+document.getElementById("predictBtn").addEventListener("click", async () => { e.preventDefault();
 
   const data = {
     Store: document.getElementById("store").value,
