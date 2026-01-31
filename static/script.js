@@ -1,4 +1,5 @@
-document.getElementById("predictBtn").addEventListener("click", async () => { e.preventDefault();
+document.getElementById("predictBtn").addEventListener("click", async () => {
+  // Removed e.preventDefault() because it was causing an error and isn't needed for type="button"
 
   const data = {
     Store: document.getElementById("store").value,
@@ -21,26 +22,34 @@ document.getElementById("predictBtn").addEventListener("click", async () => { e.
 
     const result = await response.json();
 
+    if (result.error) {
+      alert("Error: " + result.error);
+      return;
+    }
+
     const sales = result.Predicted_Weekly_Sales;
 
-    // Revenue card
-    document.getElementById("revenue").innerText =
+    // 1. Show the hidden cards container
+    document.getElementById("cards-container").classList.add("show");
+
+    // 2. Update Revenue card (Matched to HTML ID: predicted-revenue)
+    document.getElementById("predicted-revenue").innerText =
       "$" + sales.toLocaleString();
 
-    // Units card (business assumption)
+    // 3. Units card (Matched to HTML ID: forecasted-units)
     const units = Math.round(sales / 25);
-    document.getElementById("units").innerText =
+    document.getElementById("forecasted-units").innerText =
       units.toLocaleString();
 
-    // Stock risk logic
+    // 4. Stock risk logic (Matched to HTML ID: stock-risk)
     let risk = "Low (1 item)";
     if (units > 20000) risk = "High (3 items)";
     else if (units > 10000) risk = "Medium (2 items)";
 
-    document.getElementById("risk").innerText = risk;
+    document.getElementById("stock-risk").innerText = risk;
 
   } catch (err) {
-    alert("Prediction failed");
+    alert("Prediction failed. Make sure your Flask server is running!");
     console.error(err);
   }
 });
