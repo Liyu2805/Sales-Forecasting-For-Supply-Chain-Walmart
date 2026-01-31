@@ -12,7 +12,7 @@ model = joblib.load("random_forest_model.pkl")
 def predict():
     data = request.json   # coming from frontend
 
-    date = datetime.strptime(data['Date'].strip(), "%d-%m-%Y")
+    date = datetime.strptime(data['Date'], "%Y-%m-%d")
 
     input_data = {
         'Store': int(data['Store']),
