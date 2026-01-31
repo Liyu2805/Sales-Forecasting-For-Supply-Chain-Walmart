@@ -29,6 +29,8 @@ def predict():
             'Week': date.isocalendar().week,
             'Month': date.month,
             'Year': date.year
+            'Lag_1': 0,
+            'Rolling_Mean_4': 0 
         }
 
         # Convert to DataFrame
