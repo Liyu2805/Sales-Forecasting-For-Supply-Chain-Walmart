@@ -10,7 +10,7 @@ model = joblib.load("random_forest_model.pkl")
 
 @app.route('/')
 def home():
-    return app.send_static_file('index.html') 
+    return render_template('index.html') 
 
 @app.route('/predict', methods=['POST'])
 def predict():
