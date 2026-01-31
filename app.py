@@ -6,7 +6,7 @@ from datetime import datetime
 app = Flask(__name__)
 
 # Load trained model
-model = joblib.load("sales_model.joblib")
+model = joblib.load("random_forest_model.pkl")
 
 @app.route('/predict', methods=['POST'])
 def predict():
