@@ -36,6 +36,7 @@ def predict():
 
         # Predict
         prediction = model.predict(df)[0]
+        prediction = max(0, prediction)
 
         # Return JSON
         return jsonify({
